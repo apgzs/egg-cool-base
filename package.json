@@ -1,6 +1,6 @@
 {
   "name": "egg-cool-base",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "cool-admin 核心基础包",
   "eggPlugin": {
     "name": "coolBase"
@@ -37,7 +37,9 @@
     "app.js",
     "agent.js",
     "config",
-    "app"
+    "app",
+    "index.js",
+    "lib"
   ],
   "ci": {
     "version": "8, 10"

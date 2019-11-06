@@ -1,6 +1,6 @@
 {
   "name": "egg-cool-base",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "cool-admin 核心基础包",
   "eggPlugin": {
     "name": "coolBase"
@@ -49,7 +49,7 @@
   "bugs": {
     "url": "https://github.com/apgzs/egg-cool-base/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-cool-base#readme",
+  "homepage": "https://github.com/apgzs/egg-cool-base#readme",
   "author": "cool-admin ap",
   "license": "MIT"
 }

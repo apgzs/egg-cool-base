@@ -43,7 +43,7 @@ export abstract class BaseController extends Controller {
     /**
      * 初始化
      */
-    protected init() {
+    protected init () {
     }
 
     /**
@@ -71,11 +71,25 @@ export abstract class BaseController extends Controller {
     }
 
     /**
+     * 获得query请求参数
+     */
+    protected getQuery () {
+        return this.ctx.request.query;
+    }
+
+    /**
+     * 获得body请求参数
+     */
+    protected getBody () {
+        return this.ctx.request.body;
+    }
+
+    /**
      * 分页查询数据
      */
     @router.get('/page')
     protected async page () {
-        const result = await this.OpService.page(this.ctx.query, this.pageOption, this.entity);
+        const result = await this.OpService.page(this.getQuery(), this.pageOption, this.entity);
         this.res({ data: result });
     }
 
@@ -93,7 +107,7 @@ export abstract class BaseController extends Controller {
      */
     @router.get('/info')
     protected async info () {
-        const result = await this.OpService.info(this.ctx.query.id, this.entity);
+        const result = await this.OpService.info(this.getQuery().id, this.entity);
         this.res({ data: result });
     }
 
@@ -102,7 +116,7 @@ export abstract class BaseController extends Controller {
      */
     @router.post('/add')
     protected async add () {
-        await this.OpService.add(this.ctx.request.body, this.entity);
+        await this.OpService.add(this.getBody(), this.entity);
         this.res();
     }
 
@@ -111,7 +125,7 @@ export abstract class BaseController extends Controller {
      */
     @router.post('/update')
     protected async update () {
-        await this.OpService.update(this.ctx.request.body, this.entity);
+        await this.OpService.update(this.getBody(), this.entity);
         this.res();
     }
 
@@ -120,7 +134,7 @@ export abstract class BaseController extends Controller {
      */
     @router.post('/delete')
     protected async delete () {
-        await this.OpService.delete(this.ctx.request.body.ids, this.entity);
+        await this.OpService.delete(this.getBody().ids, this.entity);
         this.res();
     }
 

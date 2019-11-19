@@ -80,7 +80,7 @@ export abstract class BaseService extends Service {
      * @param sql
      */
     public getCountSql (sql) {
-        sql = sql.toLowerCase();
+        sql = sql.replace('LIMIT', 'limit');
         return `select count(*) as count from (${ sql.split('limit')[0] }) a`;
     }
 
@@ -273,6 +273,20 @@ export abstract class BaseService extends Service {
      */
     public getOrmConnection () {
         return getConnection();
+    }
+
+    /**
+     * 获得query请求参数
+     */
+    protected getQuery () {
+        return this.ctx.request.query;
+    }
+
+    /**
+     * 获得body请求参数
+     */
+    protected getBody () {
+        return this.ctx.request.body;
     }
 
 }
